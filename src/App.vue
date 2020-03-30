@@ -21,7 +21,6 @@ export default {
   mounted: function() {
     axios.get("https://jsonplaceholder.typicode.com/posts")
       .then((result) => {
-        console.log(result.data)
         this.posts = result.data
       })
   }
