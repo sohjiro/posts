@@ -3,7 +3,7 @@
     <div class="card w-75">
       <div class="card-body">
         <div class="card-title">
-          <img src="https://via.placeholder.com/64" class="rounded-circle" alt="...">
+          <img :src=image class="rounded-circle" width="50px" alt="...">
           Usuario
         </div>
 
@@ -37,6 +37,13 @@ export default {
       title: String,
       body: String,
       userId: Number
+    }
+  },
+  computed: {
+    image: function() {
+      let fileName = this.post.id % 2 == 0 ? "dog.png" : "cat.jpg"
+
+      return require(`../assets/${fileName}`)
     }
   }
 }
