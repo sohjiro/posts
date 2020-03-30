@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <Posts v-for="post in posts" :key="post.id" :post="post" />
+    <Post v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>
 
 <script>
-import Posts from './components/Posts.vue'
+import Post from './components/Post.vue'
 import axios from "axios"
 
 export default {
   name: 'App',
   components: {
-    Posts
+    Post
   },
   data: () => {
     return {
