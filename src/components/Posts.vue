@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="card-title">
           <img :src=image class="rounded-circle" width="50px" alt="...">
-          {{ this.post.user.name }}
+          {{ this.user.name }}
         </div>
 
         <p class="card-text"> {{ post.body }} </p>
@@ -30,12 +30,13 @@ export default {
   mounted: function() {
     axios.get(`https://jsonplaceholder.typicode.com/users/${this.post.userId}`)
       .then((result) => {
-        this.post.user = result.data
+        this.user = result.data
       })
   },
   data: function() {
     return {
-      counter: 0
+      counter: 0,
+      user: {}
     }
   },
   props: {
@@ -43,8 +44,7 @@ export default {
       id: Number,
       title: String,
       body: String,
-      userId: Number,
-      user: Object
+      userId: Number
     }
   },
   computed: {
